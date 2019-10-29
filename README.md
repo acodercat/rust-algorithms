@@ -8,17 +8,17 @@ Common data structures and algorithms are implemented using rust
 
 * [BinaryHeap](https://github.com/acodercat/rust-algorithms/blob/master/src/tree/binary_heap.rs)
 
-## Run Example
+### Run Example
 
 ```bash
 $ cargo run --example exampleName
 ```
-Just like that
+Just like that:
 ```bash
 $ cargo run --example binary_heap
 ```
 
-## Test
+### Test
 
 ```bash
 $ cargo test
