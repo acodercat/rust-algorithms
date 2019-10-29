@@ -4,6 +4,8 @@
 
 Common data structures and algorithms are implemented using rust.
 
+See the [examples](https://github.com/acodercat/rust-algorithms/blob/master/examples) directory for more algorithm examples.
+
 ## Algorithms
 
 * [BinaryHeap](https://github.com/acodercat/rust-algorithms/blob/master/src/tree/binary_heap.rs)
