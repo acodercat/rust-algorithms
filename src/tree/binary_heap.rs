@@ -15,14 +15,14 @@ impl <T: Debug + PartialOrd> BinaryHeap <T> {
     }
 
     // heapify
-    pub fn from_array(arr: &[T]) -> Self where T: Clone {
-        let mut bh = BinaryHeap {
-            container: arr.to_vec()
+    pub fn from(vec: Vec<T>) -> BinaryHeap<T> {
+        let mut heap = BinaryHeap {
+            container: vec
         };
-        for i in (0..=bh.calculate_parent_index_of_tail()).rev() {
-            bh.shift_down(i);
+        for i in (0..=heap.calculate_parent_index_of_tail()).rev() {
+            heap.shift_down(i);
         }
-        return bh;
+        return heap;
     }
 
     pub fn insert(&mut self, element: T) {

@@ -1,7 +1,7 @@
 use algorithms::tree::BinaryHeap;
 
 fn main() {
-    let mut heap:BinaryHeap<i32> = BinaryHeap::from_array(&[1, 2, 1212122, 1113]);
+    let mut heap:BinaryHeap<i32> = BinaryHeap::from(vec![1, 2, 3, 4]);
     heap.insert(-21);
     heap.insert(1);
     heap.insert(3);
