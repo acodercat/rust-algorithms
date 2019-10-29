@@ -15,7 +15,7 @@ See the [examples](https://github.com/acodercat/rust-algorithms/blob/master/exam
 ```bash
 $ cargo run --example exampleName
 ```
-Just like that:
+Just like this:
 ```bash
 $ cargo run --example binary_heap
 ```
