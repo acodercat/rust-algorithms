@@ -1,0 +1,13 @@
+[package]
+name = "algorithms"
+version = "0.1.0"
+authors = ["codercat <1067302838@qq.com>"]
+edition = "2018"
+keywords = [
+  "algorithm",
+  "rust"
+]
+license = "MIT"
+readme = "README.md"
+
+[dependencies]
