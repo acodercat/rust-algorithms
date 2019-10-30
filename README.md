@@ -9,8 +9,10 @@ See the [examples](https://github.com/acodercat/rust-algorithms/blob/master/exam
 ## Algorithms
 
 * [BinaryHeap](https://github.com/acodercat/rust-algorithms/blob/master/src/tree/binary_heap.rs)
+* [UnionFind](https://github.com/acodercat/rust-algorithms/blob/master/src/tree/union_find.rs)
+* [BinarySearchTree](https://github.com/acodercat/rust-algorithms/blob/master/src/tree/binary_search_tree.rs)
 
-### Run Example
+## Run Example
 
 ```bash
 $ cargo run --example exampleName
@@ -20,7 +22,7 @@ Just like this:
 $ cargo run --example binary_heap
 ```
 
-### Test
+## Test
 
 ```bash
 $ cargo test
