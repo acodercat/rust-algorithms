@@ -8,9 +8,9 @@ See the [examples](https://github.com/acodercat/rust-algorithms/blob/master/exam
 
 ## Algorithms
 
-* [BinaryHeap](https://github.com/acodercat/rust-algorithms/blob/master/src/tree/binary_heap.rs)
-* [UnionFind](https://github.com/acodercat/rust-algorithms/blob/master/src/tree/union_find.rs)
-* [BinarySearchTree](https://github.com/acodercat/rust-algorithms/blob/master/src/tree/binary_search_tree.rs)
+* [BinaryHeap](https://github.com/acodercat/rust-algorithms/blob/master/src/binary_heap.rs)
+* [UnionFind](https://github.com/acodercat/rust-algorithms/blob/master/src/union_find.rs)
+* [BinarySearchTree](https://github.com/acodercat/rust-algorithms/blob/master/src/binary_search_tree.rs)
 
 ## Run Example
 

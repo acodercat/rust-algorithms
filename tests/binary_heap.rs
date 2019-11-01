@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod tests {
-    use algorithms::tree::BinaryHeap;
+    use algorithms::binary_heap::BinaryHeap;
 
     #[test]
     fn test_binary_heap() {

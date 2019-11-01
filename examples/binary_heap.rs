@@ -1,4 +1,4 @@
-use algorithms::tree::BinaryHeap;
+use algorithms::binary_heap::BinaryHeap;
 
 fn main() {
     let mut heap:BinaryHeap<i32> = BinaryHeap::from(vec![1, 2, 3, 4]);
