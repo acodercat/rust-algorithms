@@ -19,13 +19,13 @@ impl <T: Debug + PartialOrd> BinaryHeap <T> {
         let mut heap = BinaryHeap {
             container: vec
         };
-        for i in (0..=heap.calculate_parent_index_of_tail()).rev() {
+        for i in (0 ..= heap.calculate_parent_index_of_tail()).rev() {
             heap.shift_down(i);
         }
         return heap;
     }
 
-    pub fn insert(&mut self, element: T) {
+    pub fn push(&mut self, element: T) {
         self.container.push(element);
         self.shift_up(self.tail_index());
     }
@@ -59,30 +59,28 @@ impl <T: Debug + PartialOrd> BinaryHeap <T> {
         return root;
     }
 
-    fn shift_down(&mut self, index: usize) {
-        let mut current_index = index;
-        let mut max_child_index;
+    fn shift_down(&mut self, mut current_index: usize) {
+        let mut found_child_index;
         let mut left_child_index_of_current = Self::calculate_left_child_index(current_index);
         while left_child_index_of_current < self.len() {
             let right_child_index_of_current = Self::calculate_right_child_index(current_index);
             if right_child_index_of_current < self.len() && self.container.get(right_child_index_of_current) > self.container.get(left_child_index_of_current) {
-                max_child_index = right_child_index_of_current;
+                found_child_index = right_child_index_of_current;
             } else {
-                max_child_index = left_child_index_of_current;
+                found_child_index = left_child_index_of_current;
             }
 
-            if self.container.get(current_index) >= self.container.get(max_child_index) {
+            if self.container.get(current_index) >= self.container.get(found_child_index) {
                 break;
             }
 
-            self.container.swap(current_index, max_child_index);
-            current_index = max_child_index;
+            self.container.swap(current_index, found_child_index);
+            current_index = found_child_index;
             left_child_index_of_current = Self::calculate_left_child_index(current_index);
         }
     }
 
-    fn shift_up(&mut self, index: usize) {
-        let mut current_index = index;
+    fn shift_up(&mut self, mut current_index: usize) {
         let mut parent_index_of_current = Self::calculate_parent_index(current_index);
         while (current_index > 0) && (self.container.get(current_index) > self.container.get(parent_index_of_current)) {
             self.container.swap(current_index, parent_index_of_current);
@@ -112,4 +110,25 @@ impl <T: Debug + PartialOrd> BinaryHeap <T> {
         let tail_index = self.len() - 1;
         return Self::calculate_parent_index(tail_index);
     }
+}
+
+#[test]
+fn test_binary_heap() {
+    let mut heap1:BinaryHeap<i32> = BinaryHeap::from(vec![1,3,4,5]);
+    heap1.push(-21);
+    heap1.push(1);
+    heap1.push(3);
+    heap1.push(190);
+    assert_eq!(heap1.peek(), Some(&190));
+    assert_eq!(heap1.extract(), Some(190));
+    assert_eq!(heap1.peek(), Some(&5));
+
+    let mut heap2:BinaryHeap<i32> = BinaryHeap::new();
+    heap2.push(-21);
+    heap2.push(1);
+    heap2.push(3);
+    heap2.push(190);
+    assert_eq!(heap2.peek(), Some(&190));
+    assert_eq!(heap2.extract(), Some(190));
+    assert_eq!(heap2.peek(), Some(&3));
 }
