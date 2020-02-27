@@ -10,6 +10,7 @@ See the [examples](https://github.com/acodercat/rust-algorithms/blob/master/exam
 
 * [BinaryHeap](https://github.com/acodercat/rust-algorithms/blob/master/src/binary_heap.rs)
 * [UnionFind](https://github.com/acodercat/rust-algorithms/blob/master/src/union_find.rs)
+* [LinkedList](https://github.com/acodercat/rust-algorithms/blob/master/src/linked_list.rs)
 * [BinarySearchTree](https://github.com/acodercat/rust-algorithms/blob/master/src/binary_search_tree.rs)
 
 ## Run Example

@@ -25,7 +25,7 @@ impl <T: Debug + PartialOrd> BinaryHeap <T> {
         return heap;
     }
 
-    pub fn push(&mut self, element: T) {
+    pub fn insert(&mut self, element: T) {
         self.container.push(element);
         self.shift_up(self.tail_index());
     }
@@ -89,15 +89,17 @@ impl <T: Debug + PartialOrd> BinaryHeap <T> {
         }
     }
 
-
+    #[inline]
     fn calculate_left_child_index(index: usize) -> usize {
         return index * 2 + 1;
     }
 
+    #[inline]
     fn calculate_right_child_index(index: usize) -> usize {
         return Self::calculate_left_child_index(index) + 1;
     }
 
+    #[inline]
     fn calculate_parent_index(index: usize) -> usize {
         let parent_index = ((index as f32 - 1.0) / 2.0).floor() as usize;
         if parent_index <= 0 {
@@ -106,6 +108,7 @@ impl <T: Debug + PartialOrd> BinaryHeap <T> {
         return parent_index;
     }
 
+    #[inline]
     fn calculate_parent_index_of_tail(&self) -> usize {
         let tail_index = self.len() - 1;
         return Self::calculate_parent_index(tail_index);
@@ -115,19 +118,19 @@ impl <T: Debug + PartialOrd> BinaryHeap <T> {
 #[test]
 fn test_binary_heap() {
     let mut heap1:BinaryHeap<i32> = BinaryHeap::from(vec![1,3,4,5]);
-    heap1.push(-21);
-    heap1.push(1);
-    heap1.push(3);
-    heap1.push(190);
+    heap1.insert(-21);
+    heap1.insert(1);
+    heap1.insert(3);
+    heap1.insert(190);
     assert_eq!(heap1.peek(), Some(&190));
     assert_eq!(heap1.extract(), Some(190));
     assert_eq!(heap1.peek(), Some(&5));
 
     let mut heap2:BinaryHeap<i32> = BinaryHeap::new();
-    heap2.push(-21);
-    heap2.push(1);
-    heap2.push(3);
-    heap2.push(190);
+    heap2.insert(-21);
+    heap2.insert(1);
+    heap2.insert(3);
+    heap2.insert(190);
     assert_eq!(heap2.peek(), Some(&190));
     assert_eq!(heap2.extract(), Some(190));
     assert_eq!(heap2.peek(), Some(&3));
