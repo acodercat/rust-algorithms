@@ -39,6 +39,20 @@ impl UnionFind {
         };
     }
 
+    /// Union two elements
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use algorithms::UnionFind;
+    ///
+    /// let mut union_find: UnionFind = UnionFind::new();
+    /// union_find.insert(8);
+    /// union_find.insert(18);
+    /// union_find.union(8,18);
+    /// assert_eq!(union_find.is_connected(8, 18), true);
+    /// ```
+    #[inline]
     pub fn union(&mut self, p: usize, q: usize) -> bool {
         if let (Some(p_parent), Some(q_parent)) = (self.find(p), self.find(q)) {
             if p_parent != q_parent {
@@ -59,6 +73,25 @@ impl UnionFind {
         return false;
     }
 
+    /// Returns the length of the `UnionFind`.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use algorithms::UnionFind;
+    ///
+    /// let mut union_find: UnionFind = UnionFind::new();
+    ///
+    /// uf.insert(2);
+    /// assert_eq!(uf.len(), 1);
+    ///
+    /// uf.insert(21);
+    /// assert_eq!(uf.len(), 2);
+    ///
+    /// uf.insert(23);
+    /// assert_eq!(uf.len(), 3);
+    /// ```
+    #[inline]
     pub fn find(&self, element: usize) -> Option<usize> {
         let mut current_element= element;
         while let Some(parent) = self.parents.get(&current_element) {
@@ -72,10 +105,48 @@ impl UnionFind {
         None
     }
 
+    /// Returns the length of the `UnionFind`.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use algorithms::UnionFind;
+    ///
+    /// let mut union_find: UnionFind = UnionFind::new();
+    ///
+    /// union_find.insert(2);
+    /// assert_eq!(union_find.len(), 1);
+    ///
+    /// union_find.insert(21);
+    /// assert_eq!(union_find.len(), 2);
+    ///
+    /// union_find.insert(23);
+    /// assert_eq!(union_find.len(), 3);
+    /// ```
+    #[inline]
     pub fn len(&self) -> usize {
         return self.len;
     }
 
+    /// Returns the length of the `UnionFind`.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use algorithms::UnionFind;
+    ///
+    /// let mut union_find: UnionFind = UnionFind::new();
+    ///
+    /// union_find.insert(2);
+    /// assert_eq!(union_find.len(), 1);
+    ///
+    /// union_find.insert(21);
+    /// assert_eq!(union_find.len(), 2);
+    ///
+    /// union_find.insert(23);
+    /// assert_eq!(union_find.len(), 3);
+    /// ```
+    #[inline]
     pub fn insert(&mut self, element: usize) {
         if !self.parents.contains_key(&element) {
             self.parents.insert(element, element);
@@ -84,10 +155,41 @@ impl UnionFind {
         }
     }
 
+    ///  Returns the connected component of the `UnionFind`.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use algorithms::UnionFind;
+    ///
+    /// let mut union_find: UnionFind = UnionFind::new();
+    ///
+    /// union_find.insert(2);
+    /// union_find.insert(21);
+    /// assert_eq!(union_find.connected_component(), 2);
+    ///
+    /// union_find.union(2, 21);
+    /// assert_eq!(union_find.connected_component(), 1);
+    /// ```
+    #[inline]
     pub fn connected_component(&self) -> usize {
         return self.connected_component;
     }
 
+    /// Returns `true` if the two elements is connected.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use algorithms::UnionFind;
+    ///
+    /// let mut union_find: UnionFind = UnionFind::new();
+    /// union_find.insert(8);
+    /// union_find.insert(18);
+    /// union_find.union(8, 18);
+    /// assert_eq!(union_find.is_connected(8, 18), true);
+    /// ```
+    #[inline]
     pub fn is_connected(&self, q: usize, p: usize) -> bool {
         if let (Some(p_parent), Some(q_parent)) = (self.find(p), self.find(q)) {
             if p_parent == q_parent {
