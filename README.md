@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/acodercat/rust-algorithms.svg?branch=master)](https://travis-ci.org/acodercat/rust-algorithms)
 [![MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/acodercat/rust-algorithms/blob/master/LICENSE)
 
-Common data structures and algorithms are implemented using rust.
+Common data structures and algorithms are implemented using Rust.
 
 See the [examples](https://github.com/acodercat/rust-algorithms/blob/master/examples) directory for more algorithm examples.
 
